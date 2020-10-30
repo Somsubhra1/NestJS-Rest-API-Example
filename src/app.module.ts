@@ -8,7 +8,10 @@ import { ItemsModule } from './items/items.module';
 import config from './config/keys';
 
 @Module({
-  imports: [ItemsModule, MongooseModule.forRoot(config.mongoURI)],
+  imports: [
+    ItemsModule,
+    MongooseModule.forRoot(config.mongoURI, { useFindAndModify: false }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
